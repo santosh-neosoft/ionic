@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
+
+import {Observable} from 'rxjs/Observable';
+import { HttpClient } from '@angular/common/http';
 
 /**
  * Generated class for the FilmsPage page.
@@ -14,12 +17,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'films.html',
 })
 export class FilmsPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  films: Observable<any>;
+  constructor(public navCtrl: NavController, public httpClient: HttpClient) {
+    this.films = this.httpClient.get('https://swapi.co/api/films');
+    this.films
+    .subscribe(data => {
+      console.log('my data: ', data);
+    })
   }
-  openDetails(){
-    
-    this.navCtrl.push('FilmDetailsPage', {filmId: 2});
+  openDetails(film){
+    console.log(film)
+    this.navCtrl.push('FilmDetailsPage', {film: film});
+    // this.navCtrl.push('FilmDetailsPage', {filmId: 2});
   }
   goToPlanets(){
     this.navCtrl.parent.select(2);

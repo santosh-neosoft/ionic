@@ -15,9 +15,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class FilmDetailsPage {
 
-  filmId = null;
+  // filmId = null;
+  film :any ;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.filmId = this.navParams.get('filmId')
+    // this.filmId = this.navParams.get('filmId')
+    this.film = this.navParams.get('film');
+    console.log(this.film)
   }
   goBack() {
     this.navCtrl.pop();

@@ -13,7 +13,22 @@
 </ion-header>
 
 
-<ion-content padding>
-  <button ion-button full (click)="openDetails()">Go to details</button>
+<!-- <ion-content padding> -->
+  <!-- <button ion-button full (click)="openDetails()">Go to details</button> -->
+  <!-- <ion-list>
+    <button ion-item *ngFor="let film of (films | async)?.results" (click)="openDetails(film)">
+      {{ film.title }}
+    </button>
+  </ion-list>
+  
   <button ion-button full (click)="goToPlanets()">Switch to Planets</button>
-</ion-content>
+</ion-content> -->
+
+<ion-content>
+  <ion-list>
+    <button ion-item *ngFor="let film of (films | async)?.results" (click)="openDetails(film)">
+      {{ film.title }}
+    </button>
+  </ion-list>
+   
+  </ion-content>

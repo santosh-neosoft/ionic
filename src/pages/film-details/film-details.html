@@ -7,13 +7,26 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Details</ion-title>
+   <ion-title>{{ film.title }}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-   Film ID: {{ filmId }}
+   <!-- Film ID: {{ filmId }} -->
+    <ion-card><br>
+      <div>
+        <h4>
+          Directed by {{film.director}}
+        </h4>
+        release Date :
+        <code>{{film.release_date}}</code>
+      </div>
+    <ion-card-content>
+      {{ film.opening_crawl }}
+      ion
+    </ion-card-content>
+  </ion-card>
   <button ion-button full (click)="goBack()">Go Back!</button>
 </ion-content>
